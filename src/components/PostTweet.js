@@ -3,7 +3,7 @@ import { Grid, Typography, Button, Box, Input, TextField } from "@material-ui/co
 
 const PostTweets = () => {
     return (
-        <Box style={{}}>
+        <Box style={{}} flex="3">
             <Grid>
                 <form>
                     <Input id="filled-basic" placeholder="What's Happening?" style={{color: "#fff", borderColor: "#fff"}}/>

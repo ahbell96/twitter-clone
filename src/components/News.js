@@ -10,7 +10,7 @@ import {
 
 const News = () => {
   return (
-    <Box container>
+    <Box container flex="3">
       <Box>
         <form>
           <Input placeholder="Search" />
