@@ -15,19 +15,19 @@ class App extends Component {
 
   render() {
     return (
-      <Box className='App'>
+      <Box className="App">
         {/* Parent */}
-        <Box display='flex' style={{ width: "990px", margin: "0 auto"}}>
+        <Box display="flex" style={{ width: "990px", margin: "0 auto" }}>
           {/* Child */}
-          <Box style={{flex: '0.25'}}>
+          <Box style={{ flex: "0.25" }}>
             <SideNavBar />
           </Box>
           {/* Child */}
-          <Box style={{flex: '0.4'}}>
+          <Box style={{ flex: "0.4" }}>
             <PostTweets />
           </Box>
           {/* Child */}
-          <Box style={{flex: '0.35'}}>
+          <Box style={{ flex: "0.35" }}>
             <News />
           </Box>
         </Box>

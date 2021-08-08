@@ -83,21 +83,21 @@ const News = () => {
           </Box>
         </Box>
         <Box>
-            <Box>Show more</Box>
+          <Box>Show more</Box>
         </Box>
       </Box>
 
       <Box>
-          <Box>
-              <Box>Terms of service</Box>
-              <Box>Privacy Policy</Box>
-              <Box>Cookie Policy</Box>
-          </Box>
-          <Box>
-              <Box>Ads info</Box>
-              <Box>More</Box>
-              <Box>2021 Twitter, Inc</Box>
-          </Box>
+        <Box>
+          <Box>Terms of service</Box>
+          <Box>Privacy Policy</Box>
+          <Box>Cookie Policy</Box>
+        </Box>
+        <Box>
+          <Box>Ads info</Box>
+          <Box>More</Box>
+          <Box>2021 Twitter, Inc</Box>
+        </Box>
       </Box>
     </Box>
   );
