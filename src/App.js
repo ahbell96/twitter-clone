@@ -23,7 +23,7 @@ class App extends Component {
             <SideNavBar />
           </Box>
           {/* Child */}
-          <Box style={{ flex: "0.4" }}>
+          <Box style={{flex: '0.55', border: "1px solid grey"}}>
             <PostTweets />
           </Box>
           {/* Child */}

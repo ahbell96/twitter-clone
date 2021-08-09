@@ -4,6 +4,7 @@ $border-color: rgb(47, 51, 54);
 $text-color: rgba(217, 217, 217, 1);
 $twitter-color: rgb(29, 161, 242);
 $min-desktop-width: 768px;
+$blue-hover-color: rgba(29,161,242,1.00);
 
 @font-face {
   font-family: "Chirp";
@@ -30,6 +31,9 @@ body {
 .tweet-twitter {
   background-color: $twitter-color !important;
   border-radius: 9999px !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
 }
 
 .nav-icons {
@@ -37,6 +41,23 @@ body {
   width: 100px !important;
   font-size: 20px;
 }
+
+.tweet-icons {
+  color: $blue-hover-color;
+  height: 22px !important;
+  width: 22px !important;
+}
+
+// -- material-ui overrides
+.MuiInput-underline::before {
+  display: none !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom: 2px solid $twitter-color !important;
+}
+
+// material-ui overrides --
 
 // media queries
 // https://css-tricks.com/approaches-media-queries-sass/
