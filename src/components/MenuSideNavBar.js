@@ -22,8 +22,8 @@ const theme = {
 const MenuSideNavBar = () => {
   return (
     <>
-      <Box>
-        <Box display="flex" flexDirection="column" alignItems="space-between">
+      <Box display="flex" flexDirection="row" justifyContent="flex-end">
+        <Box display="flex" flexDirection="column" width="275px">
           <Box display="flex" p={1}>
             <FontAwesomeIcon
               icon={faTwitter}
@@ -36,8 +36,8 @@ const MenuSideNavBar = () => {
                 icon={faHome}
                 className="nav-icons"
               ></FontAwesomeIcon>
-              <Box width="50" display="flex">
-                <Typography style={{ padding: "0 0 0 10" }}>Home</Typography>
+              <Box width="50" display="flex" alignItems="center">
+                <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Home</Typography>
               </Box>
             </Box>
           </Box>
@@ -46,8 +46,8 @@ const MenuSideNavBar = () => {
               icon={faHashtag}
               className="nav-icons"
             ></FontAwesomeIcon>
-            <Box width="50">
-              <Typography style={{ padding: "0 0 0 10" }} display="flex">
+            <Box width="50" display="flex" alignItems="center">
+              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>
                 Explore
               </Typography>
             </Box>
@@ -57,8 +57,8 @@ const MenuSideNavBar = () => {
               icon={faBell}
               className="nav-icons"
             ></FontAwesomeIcon>
-            <Box width="50" display="flex">
-              <Typography style={{ padding: "0 0 0 10" }}>
+            <Box width="50" display="flex" alignItems="center">
+              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>
                 Notifications
               </Typography>
             </Box>
@@ -68,8 +68,8 @@ const MenuSideNavBar = () => {
               icon={faEnvelope}
               className="nav-icons"
             ></FontAwesomeIcon>
-            <Box width="50">
-              <Typography style={{ padding: "0 0 0 10" }}>Messages</Typography>
+            <Box width="50" display="flex" alignItems="center">
+              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Messages</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -77,8 +77,8 @@ const MenuSideNavBar = () => {
               icon={faBookmark}
               className="nav-icons"
             ></FontAwesomeIcon>
-            <Box>
-              <Typography style={{ padding: "0 0 0 10" }}>Bookmarks</Typography>
+            <Box width="50" display="flex" alignItems="center">
+              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Bookmarks</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -86,8 +86,8 @@ const MenuSideNavBar = () => {
               icon={faList}
               className="nav-icons"
             ></FontAwesomeIcon>
-            <Box>
-              <Typography style={{ padding: "0 0 0 10" }}>Lists</Typography>
+            <Box width="50" display="flex" alignItems="center">
+              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Lists</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -95,8 +95,8 @@ const MenuSideNavBar = () => {
               icon={faUser}
               className="nav-icons"
             ></FontAwesomeIcon>
-            <Box>
-              <Typography style={{ padding: "0 0 0 10" }}>Profile</Typography>
+            <Box width="50" display="flex" alignItems="center">
+              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Profile</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -108,11 +108,13 @@ const MenuSideNavBar = () => {
                 ></FontAwesomeIcon>
               </Box>
             </Box>
-            <Box>
-              <Typography style={{ padding: "0 0 0 10" }}>More</Typography>
+            <Box width="50" display="flex" alignItems="center">
+              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>More</Typography>
             </Box>
           </Box>
-          <Button className="tweet-twitter">Tweet</Button>
+          <Box className='tweet-side-menu' style={{width: "90%"}}>
+          <Button className='tweet-twitter tweet-side-menu' style={{width: "90%"}}>T<Typography className="tweet-twitter" style={{textTransform: "lowercase"}}>weet</Typography></Button>
+          </Box>
         </Box>
       </Box>
     </>

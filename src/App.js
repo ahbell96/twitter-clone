@@ -17,17 +17,17 @@ class App extends Component {
     return (
       <Box className="App">
         {/* Parent */}
-        <Box display="flex" style={{ width: "990px", margin: "0 auto" }}>
+        <Box display="flex" style={{ width: "100%", margin: "0 auto" }}>
           {/* Child */}
           <Box style={{ flex: "0.25" }}>
             <SideNavBar />
           </Box>
           {/* Child */}
-          <Box style={{flex: '0.55', border: "1px solid grey"}}>
+          <Box style={{flex: '0.42', border: "1px solid grey"}}>
             <PostTweets />
           </Box>
           {/* Child */}
-          <Box style={{ flex: "0.35" }}>
+          <Box style={{ flex: "0.33" }}>
             <News />
           </Box>
         </Box>
