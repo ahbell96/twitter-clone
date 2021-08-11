@@ -23,7 +23,7 @@ const PostTweets = () => {
     <Box style={{}} flex='3'>
       <Box style={{ borderBottom: "1px solid grey" }} mb={1} py={2}>
         <Box style={{ display: "flex" }} pl={2}>
-          <Typography variant='h5'>Home</Typography>
+          <Typography variant='h5' style={{fontWeight: "800"}}>Home</Typography>
         </Box>
       </Box>
       <Box display='flex' flexDirection='row' mr={2}>

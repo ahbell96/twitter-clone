@@ -28,6 +28,10 @@ body {
   font-size: 15px;
 }
 
+.button-radius {
+  border-radius: 9999px !important;
+}
+
 .tweet-twitter {
   background-color: $twitter-color !important;
   border-radius: 9999px !important;

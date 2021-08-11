@@ -15,10 +15,6 @@ import {
   faEllipsisH,
 } from "@fortawesome/free-solid-svg-icons";
 
-const theme = {
-  spacing: 1,
-};
-
 const MenuSideNavBar = () => {
   return (
     <>
