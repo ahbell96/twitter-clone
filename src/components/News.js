@@ -154,49 +154,8 @@ const News = () => {
               </Button>
             </Box>
           </Box>
-          <Box>
-            <Box>
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <FontAwesomeIcon
-                  icon={faAngleDoubleUp}
-                  style={{ transform: "rotate(45deg)" }}
-                />
-                <Typography style={{ textTransform: "capitalize" }}>
-                  Promoted
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-          <Box>
-            <Box>Icon</Box>
-            <Box>
-              <Box>
-                <Typography>Header Data</Typography>
-              </Box>
-              <Box>
-                <Typography>@Handle</Typography>
-              </Box>
-            </Box>
-            <Box>
-              <Button>Follow</Button>
-            </Box>
-          </Box>
-          <Box>
-            <Box>Icon</Box>
-            <Box>
-              <Box>
-                <Typography>Header Data</Typography>
-              </Box>
-              <Box>
-                <Typography>@Handle</Typography>
-              </Box>
-            </Box>
-            <Box>
-              <Button>Follow</Button>
-            </Box>
-          </Box>
-          <Box>
-            <Box>Show more</Box>
+          <Box display="flex" justifyContent="flex-start" style={{border: "1px solid black", borderRadius: "0 0 16px 16px"}}>
+            <Box px={2} py={2}>Show more</Box>
           </Box>
         </Box>
 
