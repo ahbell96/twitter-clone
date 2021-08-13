@@ -4,7 +4,7 @@ $border-color: rgb(47, 51, 54);
 $text-color: rgba(217, 217, 217, 1);
 $twitter-color: rgb(29, 161, 242);
 $min-desktop-width: 768px;
-$blue-hover-color: rgba(29,161,242,1.00);
+$blue-hover-color: rgba(29, 161, 242, 1);
 
 @font-face {
   font-family: "Chirp";
@@ -35,7 +35,7 @@ body {
 .tweet-twitter {
   background-color: $twitter-color !important;
   border-radius: 9999px !important;
-  color: #fff !important;
+  color: rgb(217, 217, 217) !important;
   font-size: 15px !important;
   font-weight: 800 !important;
 }
@@ -49,9 +49,10 @@ body {
 }
 
 .nav-icons {
-  height: 1.75em;
+  height: 1.5em;
   width: 100px !important;
   font-size: 20px;
+  color: rgb(217, 217, 217) !important;
 }
 
 .tweet-icons {

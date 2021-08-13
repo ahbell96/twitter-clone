@@ -33,28 +33,31 @@ const MenuSideNavBar = () => {
                 className="nav-icons"
               ></FontAwesomeIcon>
               <Box width="50" display="flex" alignItems="center">
-                <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Home</Typography>
+                <Typography
+                  style={{ padding: "0 0 0 10" }}
+                  style={{ fontWeight: 700 }}
+                >
+                  Home
+                </Typography>
               </Box>
             </Box>
           </Box>
-          <Box display="flex" p={1}>
+          <Box display="flex" p={1} style={{ fontWeight: 500 }}>
             <FontAwesomeIcon
               icon={faHashtag}
               className="nav-icons"
             ></FontAwesomeIcon>
             <Box width="50" display="flex" alignItems="center">
-              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>
-                Explore
-              </Typography>
+              <Typography style={{ padding: "0 0 0 10" }}>Explore</Typography>
             </Box>
           </Box>
-          <Box display="flex" p={1}>
+          <Box display="flex" p={1} style={{ fontWeight: 500 }}>
             <FontAwesomeIcon
               icon={faBell}
               className="nav-icons"
             ></FontAwesomeIcon>
             <Box width="50" display="flex" alignItems="center">
-              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>
+              <Typography style={{ padding: "0 0 0 10" }}>
                 Notifications
               </Typography>
             </Box>
@@ -65,7 +68,7 @@ const MenuSideNavBar = () => {
               className="nav-icons"
             ></FontAwesomeIcon>
             <Box width="50" display="flex" alignItems="center">
-              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Messages</Typography>
+              <Typography style={{ padding: "0 0 0 10" }}>Messages</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -74,7 +77,7 @@ const MenuSideNavBar = () => {
               className="nav-icons"
             ></FontAwesomeIcon>
             <Box width="50" display="flex" alignItems="center">
-              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Bookmarks</Typography>
+              <Typography style={{ padding: "0 0 0 10" }}>Bookmarks</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -83,7 +86,7 @@ const MenuSideNavBar = () => {
               className="nav-icons"
             ></FontAwesomeIcon>
             <Box width="50" display="flex" alignItems="center">
-              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Lists</Typography>
+              <Typography style={{ padding: "0 0 0 10" }}>Lists</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -92,7 +95,7 @@ const MenuSideNavBar = () => {
               className="nav-icons"
             ></FontAwesomeIcon>
             <Box width="50" display="flex" alignItems="center">
-              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>Profile</Typography>
+              <Typography style={{ padding: "0 0 0 10" }}>Profile</Typography>
             </Box>
           </Box>
           <Box display="flex" p={1}>
@@ -105,11 +108,21 @@ const MenuSideNavBar = () => {
               </Box>
             </Box>
             <Box width="50" display="flex" alignItems="center">
-              <Typography style={{ padding: "0 0 0 10" }} style={{fontWeight: 700}}>More</Typography>
+              <Typography style={{ padding: "0 0 0 10" }}>More</Typography>
             </Box>
           </Box>
-          <Box className='tweet-side-menu' style={{width: "90%"}}>
-          <Button className='tweet-twitter tweet-side-menu' style={{width: "90%"}}>T<Typography className="tweet-twitter" style={{textTransform: "lowercase"}}>weet</Typography></Button>
+          <Box className="tweet-side-menu" style={{ width: "90%" }}>
+            <Button
+              className="tweet-twitter tweet-side-menu"
+              style={{ width: "90%" }}
+            >
+              <Typography
+                className="tweet-twitter"
+                style={{ textTransform: "capitalize" }}
+              >
+                Tweet
+              </Typography>
+            </Button>
           </Box>
         </Box>
       </Box>

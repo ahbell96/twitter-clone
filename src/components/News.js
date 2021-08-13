@@ -14,12 +14,17 @@ import image from "../assets/profile-pic.jpeg";
 
 const News = () => {
   return (
-    <Box display="flex" justifyContent="center" flex="3">
+    <Box display="flex" justifyContent="flex-start" flex="3">
       <Box
         display="flex"
         flexDirection="column"
-        style={{ width: "350px", minHeight: "53px" }}
-        justifyContent="center"
+        style={{
+          width: "350px",
+          minHeight: "53px",
+          marginLeft: "1em",
+          borderRadius: "16px",
+        }}
+        justifyContent="flex-start"
       >
         <Box
           display="flex"
@@ -29,26 +34,36 @@ const News = () => {
           pl={1.5}
           my={1.5}
           style={{
-            backgroundColor: "red",
             fontWeight: "400",
             fontSize: "15" /* make searchbox sticky */,
+            backgroundColor: "rgb(32, 35, 39)",
           }}
         >
           <form>
             <FontAwesomeIcon icon={faSearch} style={{ minWidth: "32px" }} />
-            <Input placeholder="Search Twitter" style={{ padding: "6px" }} />
+            <Input
+              placeholder="Search Twitter"
+              style={{ padding: "6px", color: "#fff" }}
+            />
           </form>
         </Box>
         <Box
           display="flex"
           flexDirection="column"
-          style={{ borderRadius: "16px", backgroundColor: "blue" }}
+          style={{ borderRadius: "16px", backgroundColor: "rgb(32, 35, 39)" }}
           mb={1.2}
         >
           <Box
             px={1.7}
             py={1.2}
-            style={{ cursor: "pointer", fontWeight: "800" }}
+            display="flex"
+            style={{
+              cursor: "pointer",
+              fontWeight: "800",
+              fontSize: "1.25em",
+              backgroundColor: "rgb(32, 35, 39)",
+              borderRadius: "16px",
+            }}
           >
             What's Happening
           </Box>
@@ -97,9 +112,18 @@ const News = () => {
         <Box
           display="flex"
           flexDirection="column"
-          style={{ backgroundColor: "green", borderRadius: "16px" }}
+          mb={1.2}
+          style={{ backgroundColor: "rgb(32, 35, 39)", borderRadius: "16px" }}
         >
-          <Box px={1.7} py={1.2} style={{ fontWeight: "800" }}>
+          <Box
+            px={1.7}
+            py={1.2}
+            display="flex"
+            style={{
+              fontWeight: "800",
+              fontSize: "1.25em",
+            }}
+          >
             Who to follow
           </Box>
           {/* Map for each person to follow ... */}
@@ -154,21 +178,76 @@ const News = () => {
               </Button>
             </Box>
           </Box>
-          <Box display="flex" justifyContent="flex-start" style={{border: "1px solid black", borderRadius: "0 0 16px 16px"}}>
-            <Box px={2} py={2}>Show more</Box>
+          <Box
+            display="flex"
+            justifyContent="flex-start"
+            style={{ borderRadius: "0 0 16px 16px" }}
+          >
+            <Box px={2} py={2}>
+              Show more
+            </Box>
           </Box>
         </Box>
 
-        <Box>
-          <Box>
-            <Box>Terms of service</Box>
-            <Box>Privacy Policy</Box>
-            <Box>Cookie Policy</Box>
+        <Box display="flex" justifyContent="center" flexDirection="column">
+          <Box display="flex" width="100%" flexDirection="row">
+            <Typography
+              style={{
+                fontSize: "13px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+              }}
+            >
+              Terms of service
+            </Typography>
+            <Typography
+              style={{
+                fontSize: "13px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+              }}
+              px={0.4}
+            >
+              Privacy Policy
+            </Typography>
+            <Typography
+              style={{
+                fontSize: "13px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+              }}
+            >
+              Cookie Policy
+            </Typography>
           </Box>
-          <Box>
-            <Box>Ads info</Box>
-            <Box>More</Box>
-            <Box>2021 Twitter, Inc</Box>
+          <Box display="flex" width="100%" flexDirection="row">
+            <Typography
+              style={{
+                fontSize: "13px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+              }}
+            >
+              Ads info
+            </Typography>
+            <Typography
+              style={{
+                fontSize: "13px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+              }}
+            >
+              More
+            </Typography>
+            <Typography
+              style={{
+                fontSize: "13px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+              }}
+            >
+              2021 Twitter, Inc
+            </Typography>
           </Box>
         </Box>
       </Box>
