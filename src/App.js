@@ -19,13 +19,13 @@ class App extends Component {
         {/* Parent */}
         <Box display="flex" style={{ width: "100%", margin: "0 auto" }}>
           {/* Child */}
-          <Box style={{ flex: "0.333" }}>
+          <Box style={{ flex: "0.360" }}>
             <SideNavBar />
           </Box>
           {/* Child */}
           <Box
             style={{
-              flex: "0.333",
+              flex: "0.28",
               borderLeft: "1px solid rgb(47, 51, 54)",
               borderRight: "1px solid rgb(47, 51, 54)",
             }}
@@ -33,7 +33,7 @@ class App extends Component {
             <PostTweets />
           </Box>
           {/* Child */}
-          <Box style={{ flex: "0.333", marginLeft: "1em" }}>
+          <Box style={{ flex: "0.360", marginLeft: "1em" }}>
             <News />
           </Box>
         </Box>
