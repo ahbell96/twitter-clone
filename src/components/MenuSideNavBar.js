@@ -2,8 +2,7 @@ import react, { useState } from "react";
 import { Grid, Typography, Button, Box, spacing } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-// import {} from '@fortawesome/fontawesome-svg-core';
-// import {fa} from '@fortawesome/free-regular-svg-icons';
+
 import {
   faHome,
   faHashtag,

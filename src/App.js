@@ -9,7 +9,19 @@ import News from "./components/News";
 // https://dummyapi.io/
 
 class App extends Component {
-  state = {};
+  state = {
+    tweets: [
+      {
+        firstName: "test 1",
+        lastName: "lastname test",
+        twitterHandle: "@testTwitterHandle",
+        tweet: "test tweet",
+        likes: "5",
+        retweets: "1",
+        comments: "2",
+      },
+    ],
+  };
 
   componentDidMount() {}
 
@@ -28,9 +40,10 @@ class App extends Component {
               flex: "0.28",
               borderLeft: "1px solid rgb(47, 51, 54)",
               borderRight: "1px solid rgb(47, 51, 54)",
+              height: "100vh",
             }}
           >
-            <PostTweets />
+            <PostTweets listOfTweets={this.state.tweets} />
           </Box>
           {/* Child */}
           <Box style={{ flex: "0.360", marginLeft: "1em" }}>
