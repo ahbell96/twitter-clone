@@ -53,6 +53,9 @@ const PostTweets = ({ listOfTweets }) => {
     // add to temp list
     tempTweets.push(currentTweet);
 
+    // sort tweet list
+    tempTweets.sort().reverse();
+
     // set temp list to state list
     setTweets(tempTweets);
   };
@@ -168,88 +171,90 @@ const PostTweets = ({ listOfTweets }) => {
         </Box>
       </Box>
       {/* Tweets List - */}
-      <Box
-        style={{
-          borderBottom: "1px solid rgb(47, 51, 54)",
-          borderTop: "1px solid rgb(47, 51, 54)",
-        }}
-      >
-        <Box display="flex" alignItems="flex-start" mx={2} mb={2}>
+      {tweets.map((_) => {
+        return (
           <Box
-            display="flex"
-            justifyContent="flex-start"
-            style={{ height: "100%" }}
-            mt={2}
+            style={{
+              borderBottom: "1px solid rgb(47, 51, 54)",
+              borderTop: "1px solid rgb(47, 51, 54)",
+            }}
           >
-            <Box display="flex" justifyContent="flex-start" mr={2}>
-              <img
-                src={image}
-                style={{ height: "50px", borderRadius: "50%" }}
-              />
-            </Box>
-          </Box>
-          <Box display="flex" flexDirection="column">
-            <Box display="flex" alignItems="center">
-              <Box mr={0.25}>
-                <h>Sky Bet Championship</h>
+            <Box display="flex" alignItems="flex-start" mx={2} mb={2}>
+              <Box
+                display="flex"
+                justifyContent="flex-start"
+                style={{ height: "100%" }}
+                mt={2}
+              >
+                <Box display="flex" justifyContent="flex-start" mr={2}>
+                  <img
+                    src={image}
+                    style={{ height: "50px", borderRadius: "50%" }}
+                  />
+                </Box>
               </Box>
-              <Box mx={0.25}>
-                <p>@SkyBetChamp</p>
-              </Box>
-              <Box mx={0.25}>
-                <span>.</span>
-              </Box>
-              <Box mx={0.25}>
-                <a>
-                  <time>59s</time>
-                </a>
-              </Box>
-            </Box>
-            <Box display="flex">
-              <Box display="flex">
+              <Box display="flex" flexDirection="column">
+                <Box display="flex" alignItems="center">
+                  <Box mr={0.25}>
+                    <h>{_.firstName + " " + _.lastName}</h>
+                  </Box>
+                  <Box mx={0.25}>
+                    <p>{_.twitterHandle}</p>
+                  </Box>
+                  <Box mx={0.25}>
+                    <span>.</span>
+                  </Box>
+                  <Box mx={0.25}>
+                    <a>
+                      <time>59s</time>
+                    </a>
+                  </Box>
+                </Box>
                 <Box display="flex">
-                  <span style={{ textAlign: "left" }}>
-                    eofkasopifjkvmjfopivk okgj opiwefkj qeokfap efpojweo eofkp
-                    ejifdi jfiojergop mvopemcplak-qwkf dkjnvkjrhjnvbuirn
-                    veinucvuioej vnrvbjkn
-                  </span>
+                  <Box display="flex">
+                    <Box display="flex">
+                      <span style={{ textAlign: "left" }}>{_.tweet}</span>
+                    </Box>
+                  </Box>
                 </Box>
-              </Box>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-around"
-              mt={2}
-            >
-              <Box>
-                <Box>
-                  <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
-                </Box>
-                <Box>2</Box>
-              </Box>
-              <Box>
-                <Box>
-                  <FontAwesomeIcon icon={faRetweet}></FontAwesomeIcon>
-                </Box>
-                <Box>1</Box>
-              </Box>
-              <Box>
-                <Box>
-                  <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
-                </Box>
-                <Box>15</Box>
-              </Box>
-              <Box>
-                <Box>
-                  <FontAwesomeIcon icon={faShareSquare}></FontAwesomeIcon>
+                <Box
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="space-around"
+                  mt={2}
+                >
+                  <Box>
+                    <Box>
+                      <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
+                    </Box>
+                    <Box>{_.comments}</Box>
+                  </Box>
+                  <Box>
+                    <Box>
+                      <FontAwesomeIcon icon={faRetweet}></FontAwesomeIcon>
+                    </Box>
+                    <Box>{_.retweets}</Box>
+                  </Box>
+                  <Box>
+                    <Box>
+                      <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+                    </Box>
+                    <Box>{_.likes}</Box>
+                  </Box>
+                  <Box>
+                    <Box>
+                      <FontAwesomeIcon icon={faShareSquare}></FontAwesomeIcon>
+                    </Box>
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
-      </Box>
-      {/* - Tweets List */}
+        );
+        {
+          /* - Tweets List */
+        }
+      })}
     </Box>
   );
 };
