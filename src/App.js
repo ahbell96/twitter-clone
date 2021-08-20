@@ -1,9 +1,9 @@
 import react, { Component } from "react";
 import "./App.scss";
 import { Grid, Typography, Button, Container, Box } from "@material-ui/core";
-import SideNavBar from "./components/MenuSideNavBar";
-import PostTweets from "./components/PostTweet";
-import News from "./components/News";
+import SideNavBar from "./containers/MenuSideNavBar";
+import PostTweets from "./containers/PostTweet";
+import News from "./containers/News";
 
 // api for dummy data?
 // https://dummyapi.io/
