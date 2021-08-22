@@ -4,6 +4,7 @@ import { Grid, Typography, Button, Container, Box } from "@material-ui/core";
 import SideNavBar from "./containers/MenuSideNavBar";
 import PostTweets from "./containers/PostTweet";
 import News from "./containers/News";
+import axios from 'axios';
 
 // api for dummy data?
 // https://dummyapi.io/
@@ -12,20 +13,17 @@ class App extends Component {
   state = {
     tweets: [
       {
-        firstName: "test 1",
-        lastName: "lastname test",
-        twitterHandle: "@testTwitterHandle",
-        tweet: "test tweet",
-        likes: "5",
-        retweets: "1",
-        comments: "2",
       },
     ],
+    isLoading: true
   };
 
-  componentDidMount() {}
+  setIsLoading = () => {
+    this.setState({isLoading: false});
+  }
 
   render() {
+
     return (
       <Box className="App" style={{ backgroundColor: "rgb(0,0,0)" }}>
         {/* Parent */}

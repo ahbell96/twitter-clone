@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState, useEffect} from "react";
 import {
   Grid,
   Typography,
@@ -23,8 +23,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import image from "../assets/profile-pic.jpeg";
 import styleOverrides from "../components/styleOverrides";
+import axios from 'axios';
 
 const PostTweetComponent = ({ tweets }) => {
+
+  useEffect(() => {
+    if(tweets.length > 1) {
+      setIsLoading(false);
+    }
+  }, [tweets])
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  if (isLoading) {
+    return (
+      <div>is Loading ...</div>
+    )
+  }
+
   return tweets.map((_) => {
     return (
       <Box
@@ -38,23 +54,22 @@ const PostTweetComponent = ({ tweets }) => {
             display='flex'
             justifyContent='flex-start'
             style={{ height: "100%" }}
-            d
             mt={2}
           >
             <Box display='flex' justifyContent='flex-start' mr={2}>
               <img
-                src={image}
-                style={{ height: "50px", borderRadius: "50%" }}
+                src={_.image}
+                style={{ height: "50px", width: "50px", borderRadius: "50%" }}
               />
             </Box>
           </Box>
           <Box display='flex' flexDirection='column'>
             <Box display='flex' alignItems='center'>
               <Box mr={0.25}>
-                <h3>{_.firstName + " " + _.lastName}</h3>
+                <h3>{_.owner.firstName + " " + _.owner.lastName}</h3>
               </Box>
               <Box mx={0.25}>
-                <p>{_.twitterHandle}</p>
+                <p>{`@${_.owner.lastName}`}</p>
               </Box>
               <Box mx={0.25}>
                 <span>.</span>
@@ -68,7 +83,7 @@ const PostTweetComponent = ({ tweets }) => {
             <Box display='flex'>
               <Box display='flex'>
                 <Box display='flex'>
-                  <span style={{ textAlign: "left" }}>{_.tweet}</span>
+                  <span style={{ textAlign: "left" }}>{_.text}</span>
                 </Box>
               </Box>
             </Box>

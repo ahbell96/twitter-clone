@@ -21,6 +21,10 @@ body {
   margin: 0;
 }
 
+body > #root > div {
+  height: 100vh;
+}
+
 .App {
   font-family: Chirp, Arial, Helvetica, sans-serif;
   background: $background-color;

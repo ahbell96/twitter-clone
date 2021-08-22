@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 import { Grid, Typography, Button, Box, TextField } from "@material-ui/core";
 import { spacing } from "@material-ui/system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,9 +12,17 @@ import {
 import image from "../assets/profile-pic.jpeg";
 import styleOverrides from "../components/styleOverrides";
 import PostTweetComponent from "../components/PostTweet";
+import axios from 'axios';
 
 const PostTweets = ({ listOfTweets }) => {
   const overrideMaterialStyles = styleOverrides();
+
+  useEffect( async () => {
+    axios.defaults.headers.common['app-id'] = '6122bc82cf9d107766bc1f2d';
+    axios.get('https://dummyapi.io/data/v1/post?limit=10').then((response) => response.data).then((data) => {
+      setDummyTweets(data.data);
+    })
+  }, [])
 
   // save to state
   const tweetData = (e) => {
@@ -63,11 +71,13 @@ const PostTweets = ({ listOfTweets }) => {
   };
 
   const [tweetForm, setTweetForm] = useState(defaultTweetBase);
+  const [dummyTweets, setDummyTweets] = useState([{}]);
 
   const [tweets, setTweets] = useState(listOfTweets);
 
   return (
     <Box style={{}} flex='3'>
+    {console.log(dummyTweets)}
       <Box style={{ borderBottom: "1px solid rgb(47, 51, 54)" }} mb={1} py={2}>
         <Box style={{ display: "flex" }} pl={2}>
           <Typography variant='h5' style={{ fontWeight: "800" }}>
@@ -165,8 +175,8 @@ const PostTweets = ({ listOfTweets }) => {
           </form>
         </Box>
       </Box>
-      <PostTweetComponent tweets={tweets} />
-      {/* add compoennt here */}
+      {console.log(dummyTweets)}
+      <PostTweetComponent tweets={dummyTweets}/>
     </Box>
   );
 };
