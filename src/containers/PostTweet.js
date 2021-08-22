@@ -1,13 +1,5 @@
 import react, { useState } from "react";
-import {
-  Grid,
-  Typography,
-  Button,
-  Box,
-  Input,
-  FormControl,
-  TextField,
-} from "@material-ui/core";
+import { Grid, Typography, Button, Box, TextField } from "@material-ui/core";
 import { spacing } from "@material-ui/system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,19 +8,13 @@ import {
   faSmile,
   faCalendar,
   faIcons,
-  faComment,
-  faRetweet,
-  faHeart,
-  faShareSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import image from "../assets/profile-pic.jpeg";
 import styleOverrides from "../components/styleOverrides";
-import PostTweetComponent from '../components/PostTweet';
+import PostTweetComponent from "../components/PostTweet";
 
 const PostTweets = ({ listOfTweets }) => {
   const overrideMaterialStyles = styleOverrides();
-
-  const {checkTweetData, setCheckTweetData} = useState(false);
 
   // save to state
   const tweetData = (e) => {
@@ -50,19 +36,23 @@ const PostTweets = ({ listOfTweets }) => {
     const tempTweets = [...tweets];
 
     // make copy of current tweet from textfield
-    const currentTweet = { ...tweetForm };
+    const tempTweetForm = {...tweetForm};
 
     // add to temp list
-    tempTweets.push(currentTweet);
+    tempTweets.push(tempTweetForm);
 
     // sort tweet list
     tempTweets.sort().reverse();
 
     // set temp list to state list
     setTweets(tempTweets);
+
+    // revert textfield to default.
+    setTweetForm(defaultTweetBase);
+
   };
 
-  const [tweetForm, setTweetForm] = useState({
+  const defaultTweetBase = {
     firstName: "test",
     lastName: "lastname test",
     twitterHandle: "@testTwitterHandle",
@@ -70,41 +60,42 @@ const PostTweets = ({ listOfTweets }) => {
     likes: "5",
     retweets: "1",
     comments: "2",
-  });
-  
+  };
+
+  const [tweetForm, setTweetForm] = useState(defaultTweetBase);
+
   const [tweets, setTweets] = useState(listOfTweets);
 
   return (
-    <Box style={{}} flex="3">
+    <Box style={{}} flex='3'>
       <Box style={{ borderBottom: "1px solid rgb(47, 51, 54)" }} mb={1} py={2}>
         <Box style={{ display: "flex" }} pl={2}>
-          <Typography variant="h5" style={{ fontWeight: "800" }}>
+          <Typography variant='h5' style={{ fontWeight: "800" }}>
             Home
           </Typography>
         </Box>
       </Box>
-      <Box display="flex" flexDirection="row" mr={2} my={2}>
+      <Box display='flex' flexDirection='row' mr={2} my={2}>
         <Box mb={2}>
-          <Box display="flex" mb={2}>
+          <Box display='flex' mb={2}>
             <Box mx={2}>
               <img
-                alt="profile"
+                alt='profile'
                 src={image}
                 style={{ height: "50px", borderRadius: "50%" }}
               />
             </Box>
           </Box>
         </Box>
-        <Box display="flex" flexDirection="column" style={{ width: "100%" }}>
+        <Box display='flex' flexDirection='column' style={{ width: "100%" }}>
           <form
-            // action="POST"
             style={{ display: "flex", flexDirection: "column" }}
           >
-            <Box display="flex">
+            <Box display='flex'>
               <TextField
-                name="tweet"
-                variant="standard"
-                id="filled-basic"
+                name='tweet'
+                variant='standard'
+                id='filled-basic'
                 inputProps={{ className: overrideMaterialStyles.input }}
                 placeholder="What's Happening?"
                 style={{
@@ -112,57 +103,58 @@ const PostTweets = ({ listOfTweets }) => {
                   fontSize: "22px",
                   color: "white",
                 }}
+                value={tweetForm['tweet']}
                 onChange={tweetData}
               />
             </Box>
             <Box
-              display="flex"
-              alignItems="flex-start"
-              flexDirection="row"
-              justifyContent="space-between"
+              display='flex'
+              alignItems='flex-start'
+              flexDirection='row'
+              justifyContent='space-between'
               mt={2}
             >
-              <Box display="flex" flexDirection="row">
+              <Box display='flex' flexDirection='row'>
                 <Box py={1} pr={3}>
                   <FontAwesomeIcon
                     icon={faImage}
-                    className="tweet-icons"
+                    className='tweet-icons'
                   ></FontAwesomeIcon>
                 </Box>
                 <Box py={1} pr={3}>
                   <FontAwesomeIcon
                     icon={faIcons}
-                    className="tweet-icons"
+                    className='tweet-icons'
                   ></FontAwesomeIcon>
                 </Box>
                 <Box py={1} pr={3}>
                   <FontAwesomeIcon
                     icon={faChartBar}
-                    className="tweet-icons"
+                    className='tweet-icons'
                   ></FontAwesomeIcon>
                 </Box>
                 <Box py={1} pr={3}>
                   <FontAwesomeIcon
                     icon={faSmile}
-                    className="tweet-icons"
+                    className='tweet-icons'
                   ></FontAwesomeIcon>
                 </Box>
                 <Box py={1} pr={3}>
                   <FontAwesomeIcon
                     icon={faCalendar}
-                    className="tweet-icons"
+                    className='tweet-icons'
                   ></FontAwesomeIcon>
                 </Box>
               </Box>
               <Box>
                 <Button
-                  value="tweet"
-                  className="tweet-twitter"
+                  value='tweet'
+                  className='tweet-twitter'
                   style={{ paddingLeft: "1em", paddingRight: "1em" }}
                   onClick={(e) => onClickPostTweet(e)}
                 >
                   <Typography
-                    className="tweet-twitter"
+                    className='tweet-twitter'
                     style={{ textTransform: "capitalize" }}
                   >
                     Tweet
@@ -173,7 +165,7 @@ const PostTweets = ({ listOfTweets }) => {
           </form>
         </Box>
       </Box>
-      <PostTweetComponent tweets={tweets}/>
+      <PostTweetComponent tweets={tweets} />
       {/* add compoennt here */}
     </Box>
   );
