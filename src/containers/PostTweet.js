@@ -22,6 +22,11 @@ const PostTweets = ({ listOfTweets }) => {
     axios.get('https://dummyapi.io/data/v1/post?limit=10').then((response) => response.data).then((data) => {
       setDummyTweets(data.data);
     })
+
+    // axios.get('http://localhost:8080/get').then((response) => {
+    //   console.log(response);
+    // })
+
   }, [])
 
   // save to state
@@ -39,7 +44,7 @@ const PostTweets = ({ listOfTweets }) => {
     setTweetForm(tempTweetForm);
   };
 
-  const onClickPostTweet = () => {
+  const onClickPostTweet = async => {
     // make copy of tweets
     const tempTweets = [...tweets];
 
@@ -49,6 +54,8 @@ const PostTweets = ({ listOfTweets }) => {
     // add to temp list
     tempTweets.push(tempTweetForm);
 
+    const temptSingleTweet = tempTweetForm.tweet;
+
     // sort tweet list
     tempTweets.sort().reverse();
 
@@ -57,6 +64,14 @@ const PostTweets = ({ listOfTweets }) => {
 
     // revert textfield to default.
     setTweetForm(defaultTweetBase);
+
+    axios.post('http://localhost:8080/post', {
+      tweet: temptSingleTweet
+    }).then((response) => {
+      console.log(response)
+    }).catch((e) => {
+      console.error("error");
+    })
 
   };
 
@@ -77,7 +92,6 @@ const PostTweets = ({ listOfTweets }) => {
 
   return (
     <Box style={{}} flex='3'>
-    {console.log(dummyTweets)}
       <Box style={{ borderBottom: "1px solid rgb(47, 51, 54)" }} mb={1} py={2}>
         <Box style={{ display: "flex" }} pl={2}>
           <Typography variant='h5' style={{ fontWeight: "800" }}>
@@ -100,6 +114,8 @@ const PostTweets = ({ listOfTweets }) => {
         <Box display='flex' flexDirection='column' style={{ width: "100%" }}>
           <form
             style={{ display: "flex", flexDirection: "column" }}
+            method="POST"
+            action="/"
           >
             <Box display='flex'>
               <TextField
@@ -162,6 +178,7 @@ const PostTweets = ({ listOfTweets }) => {
                   className='tweet-twitter'
                   style={{ paddingLeft: "1em", paddingRight: "1em" }}
                   onClick={(e) => onClickPostTweet(e)}
+                  type="submit"
                 >
                   <Typography
                     className='tweet-twitter'
@@ -175,8 +192,9 @@ const PostTweets = ({ listOfTweets }) => {
           </form>
         </Box>
       </Box>
-      {console.log(dummyTweets)}
+      <Box style={{overflow: "auto", height: "100vh"}}>
       <PostTweetComponent tweets={dummyTweets}/>
+      </Box>
     </Box>
   );
 };
