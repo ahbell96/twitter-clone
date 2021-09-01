@@ -10,6 +10,7 @@ import {
 import { spacing } from "@material-ui/system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faAngleDoubleUp } from "@fortawesome/free-solid-svg-icons";
+import SearchBar from '../components/SearchBar';
 import image from "../assets/profile-pic.jpeg";
 
 const News = () => {
@@ -26,27 +27,7 @@ const News = () => {
         }}
         justifyContent="flex-start"
       >
-        <Box
-          display="flex"
-          flexDirection="row"
-          justifyContent="flex-start"
-          className="button-radius"
-          pl={1.5}
-          my={1.5}
-          style={{
-            fontWeight: "400",
-            fontSize: "15" /* make searchbox sticky */,
-            backgroundColor: "rgb(32, 35, 39)",
-          }}
-        >
-          <form>
-            <FontAwesomeIcon icon={faSearch} style={{ minWidth: "32px" }} />
-            <Input
-              placeholder="Search Twitter"
-              style={{ padding: "6px", color: "#fff" }}
-            />
-          </form>
-        </Box>
+        <SearchBar/>
         <Box
           display="flex"
           flexDirection="column"

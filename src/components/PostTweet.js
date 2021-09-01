@@ -1,4 +1,4 @@
-import react, { useState, useEffect} from "react";
+import react, { useState, useEffect } from "react";
 import {
   Grid,
   Typography,
@@ -23,27 +23,34 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import image from "../assets/profile-pic.jpeg";
 import styleOverrides from "../components/styleOverrides";
-import axios from 'axios';
-import InfiniteScroll from 'react-infinite-scroller';
+import axios from "axios";
+import InfiniteScroll from "react-infinite-scroller";
 
-
-const PostTweetComponent = ({ tweets }) => {
-
+const PostTweetComponent = ({ tweets, loadMoreTweets }) => {
   useEffect(() => {
-    if(tweets.length > 1) {
+    if (tweets.length > 1) {
       setIsLoading(false);
     }
-  }, [tweets])
+  }, [tweets]);
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const loader = () => {
+    return (
+      <div>is Loading ...</div>
+    )
+  }
+
   const tweetData = () => {
-    return tweets.map((_) => {
+    return tweets.map((_, i) => {
       return (
         <Box
           style={{
             borderBottom: "1px solid rgb(47, 51, 54)",
             borderTop: "1px solid rgb(47, 51, 54)",
+            transition: "opacity 0.3s ease-in-out 0s"
           }}
+          key={i}
         >
           <Box display='flex' alignItems='flex-start' mx={2} mb={2}>
             <Box
@@ -118,21 +125,25 @@ const PostTweetComponent = ({ tweets }) => {
         </Box>
       );
     });
-  }
+  };
 
   if (isLoading) {
-    return (
-      <div>is Loading ...</div>
-    )
+    return loader;
   }
-  
-  return <InfiniteScroll
-  pageStart={0}
-  loadMore={{}}
-  hasMore={true || false}
-  >
-  {tweetData()}
-  </InfiniteScroll>
+
+  return (
+    <>
+    {console.log(loadMoreTweets)}
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={loadMoreTweets}
+      hasMore={true}
+      loader={loader}
+    >
+      {tweetData()}
+    </InfiniteScroll>
+    </>
+  );
 };
 
 export default PostTweetComponent;

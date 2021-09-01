@@ -20,7 +20,7 @@ const PostTweets = ({ listOfTweets }) => {
   useEffect(async () => {
     axios.defaults.headers.common["app-id"] = "6122bc82cf9d107766bc1f2d";
     axios
-      .get("https://dummyapi.io/data/v1/post?limit=10")
+      .get("https://dummyapi.io/data/v1/post?limit=30")
       .then((response) => response.data)
       .then((data) => {
         setDummyTweets(data.data);
@@ -30,6 +30,16 @@ const PostTweets = ({ listOfTweets }) => {
     //   console.log(response);
     // })
   }, []);
+
+  const loadMoreTweets = async => {
+    console.log("hello from load more tweets")
+    axios.get("https://dummyapi.io/data/v1/post?limit=20").then((response) => response.data).then((data) => {
+      const currentTweets = {...dummyTweets};
+      currentTweets.push(data.data);
+      setDummyTweets(currentTweets);
+      console.log(currentTweets);
+    })
+  }
 
   // save to state
   const tweetData = (e) => {
@@ -197,7 +207,7 @@ const PostTweets = ({ listOfTweets }) => {
         </Box>
       </Box>
       <Box style={{ overflow: "auto", height: "100vh" }}>
-        <PostTweetComponent tweets={dummyTweets} />
+        <PostTweetComponent tweets={dummyTweets} loadMoreTweets={() => loadMoreTweets()} />
       </Box>
     </Box>
   );
