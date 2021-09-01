@@ -12,22 +12,24 @@ import {
 import image from "../assets/profile-pic.jpeg";
 import styleOverrides from "../components/styleOverrides";
 import PostTweetComponent from "../components/PostTweet";
-import axios from 'axios';
+import axios from "axios";
 
 const PostTweets = ({ listOfTweets }) => {
   const overrideMaterialStyles = styleOverrides();
 
-  useEffect( async () => {
-    axios.defaults.headers.common['app-id'] = '6122bc82cf9d107766bc1f2d';
-    axios.get('https://dummyapi.io/data/v1/post?limit=10').then((response) => response.data).then((data) => {
-      setDummyTweets(data.data);
-    })
+  useEffect(async () => {
+    axios.defaults.headers.common["app-id"] = "6122bc82cf9d107766bc1f2d";
+    axios
+      .get("https://dummyapi.io/data/v1/post?limit=10")
+      .then((response) => response.data)
+      .then((data) => {
+        setDummyTweets(data.data);
+      });
 
     // axios.get('http://localhost:8080/get').then((response) => {
     //   console.log(response);
     // })
-
-  }, [])
+  }, []);
 
   // save to state
   const tweetData = (e) => {
@@ -44,12 +46,12 @@ const PostTweets = ({ listOfTweets }) => {
     setTweetForm(tempTweetForm);
   };
 
-  const onClickPostTweet = async => {
+  const onClickPostTweet = (async) => {
     // make copy of tweets
     const tempTweets = [...tweets];
 
     // make copy of current tweet from textfield
-    const tempTweetForm = {...tweetForm};
+    const tempTweetForm = { ...tweetForm };
 
     // add to temp list
     tempTweets.push(tempTweetForm);
@@ -65,14 +67,16 @@ const PostTweets = ({ listOfTweets }) => {
     // revert textfield to default.
     setTweetForm(defaultTweetBase);
 
-    axios.post('http://localhost:8080/post', {
-      tweet: temptSingleTweet
-    }).then((response) => {
-      console.log(response)
-    }).catch((e) => {
-      console.error("error");
-    })
-
+    axios
+      .post("http://localhost:8080/post", {
+        tweet: temptSingleTweet,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.error("error");
+      });
   };
 
   const defaultTweetBase = {
@@ -114,8 +118,8 @@ const PostTweets = ({ listOfTweets }) => {
         <Box display='flex' flexDirection='column' style={{ width: "100%" }}>
           <form
             style={{ display: "flex", flexDirection: "column" }}
-            method="POST"
-            action="/"
+            method='POST'
+            action='/'
           >
             <Box display='flex'>
               <TextField
@@ -129,7 +133,7 @@ const PostTweets = ({ listOfTweets }) => {
                   fontSize: "22px",
                   color: "white",
                 }}
-                value={tweetForm['tweet']}
+                value={tweetForm["tweet"]}
                 onChange={tweetData}
               />
             </Box>
@@ -178,7 +182,7 @@ const PostTweets = ({ listOfTweets }) => {
                   className='tweet-twitter'
                   style={{ paddingLeft: "1em", paddingRight: "1em" }}
                   onClick={(e) => onClickPostTweet(e)}
-                  type="submit"
+                  type='submit'
                 >
                   <Typography
                     className='tweet-twitter'
@@ -192,8 +196,8 @@ const PostTweets = ({ listOfTweets }) => {
           </form>
         </Box>
       </Box>
-      <Box style={{overflow: "auto", height: "100vh"}}>
-      <PostTweetComponent tweets={dummyTweets}/>
+      <Box style={{ overflow: "auto", height: "100vh" }}>
+        <PostTweetComponent tweets={dummyTweets} />
       </Box>
     </Box>
   );
